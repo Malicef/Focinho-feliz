@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Ultra&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -102,6 +102,9 @@ main .sobre {
 }
 
 main .sobre h2 {
+    font-family: "Ultra", serif;
+    font-weight: 400;
+    font-style: normal;
     margin-top: 8.188rem;
     font-size: 64px;
     margin-top: 8.625rem;
@@ -110,6 +113,8 @@ main .sobre h2 {
 }
 
 main .sobre p {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
     margin-top: 8.625rem;
     margin-left: 5.813rem;
     color: black;
@@ -149,6 +154,9 @@ main .menu .title {
 }
 
 main .menu .title h2 {
+    font-family: "Ultra", serif;
+    font-weight: 400;
+    font-style: normal;
     font-size: 64px;
     color: #FFC300;
 }
@@ -173,6 +181,8 @@ main .menu .menu-adocao .card {
     justify-content: center;
     text-align: center;
     background-color: #246182;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
 }
 
 main .menu .menu-adocao .card figure {
@@ -209,6 +219,9 @@ main .doacao {
 }
 
 main .doacao .title-doacao h2{
+    font-family: "Ultra", serif;
+    font-weight: 400;
+    font-style: normal;
     flex: 100%;
     font-size: 64px;
     margin-top: 8.25rem;
@@ -237,6 +250,8 @@ main .doacao .center .cat img{
 
 main .doacao .center .pix {
     margin-left: 12.438rem;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
 }
 
 main .doacao .center .pix img {
@@ -258,7 +273,59 @@ main .doacao .center .pix p {
 }
 
 main .contato {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+main .contato .title-contato {
+    /* border: 1px solid black; */
+    flex: 100%;
+    height: 4.847rem;
+    margin-top: 9.166rem;
+}
+
+main .contato .title-contato h2 {
+    font-family: "Ultra", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 64px;
+    color: #FFC300;
+    margin-left: 3.813rem;
+}
+
+main .contato .center-contato {
+    flex: 100;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+main .contato .center-contato .list-info {
+    text-align: start;
+    margin-top: 4.799rem;
+    margin-left: 3.813rem;
+}
+
+main .contato .center-contato .list-info li {
+    list-style: none;
+    height: 8rem;
+}
+
+main .contato .center-contato .list-info a, span {
+    font-size: 32px;
+    color: #4B759A;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
+}
+
+main .contato .center-contato .image-contato {
+    height: 31.99rem;
+    width: 80%;
+    text-align: center;
+}
+
+main .contato .center-contato .image-contato img {
+    width: 60%;
 }
