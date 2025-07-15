@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify, session
+from flask_cors import CORS
 from db import db, Usuario, criar_tabelas_teste
 
 # Inicializa o app Flask
 app = Flask(__name__)
 app.secret_key = "chave-secreta"  # necessário para usar session
+CORS(app, supports_credentials=True)
 
 # Rota da API de login
 @app.route("/api/login", methods=["POST"])
