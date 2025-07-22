@@ -108,14 +108,34 @@
                     <h4>Nome: Caramelo</h4>
                     <button>ver mais</button>
                 </div>
+                <button id="abrirModal" class="botao-cadastrar">Cadastrar novo pet +</button>
+            </div>
+            <div id="modalCadastro" class="modal">
+                <div class="modal-conteudo">
+                    <span class="fechar">&times;</span>
+                    <h3>Cadastrar novo pet</h3>
+                    <form id="formCadastroPet" enctype="multipart/form-data">
+                        <label for="nomePet">Nome:</label>
+                        <input type="text" id="nomePet" name="nome" required>
+
+                        <label for="pesoPet">Peso (kg):</label>
+                        <input type="number" id="pesoPet" name="peso" required step="0.1" min="0">
+
+                        <label for="fotoPet">Foto:</label>
+                        <input type="file" id="fotoPet" name="foto" accept="image/*" required>
+
+                        <button type="submit">Cadastrar</button>
+                        <p id="mensagemCadastro" style="color: green;"></p>
+                    </form>
+                </div>
             </div>
         </section>
-
+        
         <section class="doacao">
             <div class="title-doacao">
                 <h2>Deixe sua colaboração</h2>
             </div>
-
+            
             <div class="center">
                 <div class="cat">
                     <img src="./assets/image/Rectangle25.png" alt="">
@@ -148,4 +168,6 @@
         </section>
     </main>
 </body>
+<script src="./src/js/cadastroPet.js">
+</script>
 </html>

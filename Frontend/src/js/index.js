@@ -10,16 +10,14 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
             "Content-Type": "application/json"
         },
         body: JSON.stringify({ email, senha }),
-        credentials: "include" // necessário para cookies/sessão
+        credentials: "include"
     });
 
     const resultado = await resposta.json();
 
     if (resposta.ok) {
-        // Login bem-sucedido -> redireciona para a página principal
-        window.location.href = "index.html"; // troque para o nome real do arquivo principal
+        window.location.href = "index.html";
     } else {
-        // Mostra erro
         document.getElementById("erro").innerText = resultado.erro;
     }
 });
