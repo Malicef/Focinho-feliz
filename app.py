@@ -8,9 +8,9 @@ from werkzeug.utils import secure_filename
 UPLOAD_FOLDER = os.path.join("static", "uploads")
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# Inicializa o app Flask
+
 app = Flask(__name__)
-app.secret_key = "chave-secreta"  # necessário para usar session
+app.secret_key = "chave-secreta" 
 CORS(app, supports_credentials=True)
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
@@ -42,22 +42,36 @@ def cadastrar_pet():
     if not nome or not peso or not foto:
         return jsonify({"erro": "Todos os campos são obrigatórios"}), 400
 
-    # Salvar imagem com nome seguro
+    
     filename = secure_filename(foto.filename)
     caminho_foto = os.path.join(app.config["UPLOAD_FOLDER"], filename)
     foto.save(caminho_foto)
+    html = f"/static/uploads/{filename}"
+    
 
-    # Grava no banco
     Cachorro.create(
         nome=nome,
         peso=float(peso),
-        foto=caminho_foto  # caminho para exibição posterior
+        foto=html
     )
 
     return jsonify({"mensagem": "Pet cadastrado com sucesso"})
 
 
-# Iniciar servidor
+@app.route("/api/cachorros", methods=["GET"])
+def listar_cachorros():
+    cachorros = Cachorro.select()
+    lista = []
+    for c in cachorros:
+        lista.append({
+            "nome": c.nome,
+            "peso": c.peso,
+            "foto": c.foto
+        })
+    return jsonify(lista)
+
+
+
 if __name__ == '__main__':
     db.connect()
     db.create_tables([Usuario, Cachorro])

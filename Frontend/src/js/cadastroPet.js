@@ -6,7 +6,7 @@ document.querySelector(".fechar").addEventListener("click", () => {
   document.getElementById("modalCadastro").style.display = "none";
 });
 
-// Fechar modal ao clicar fora
+
 window.addEventListener("click", (e) => {
   if (e.target.id === "modalCadastro") {
     document.getElementById("modalCadastro").style.display = "none";
@@ -43,3 +43,41 @@ document.getElementById("formCadastroPet").addEventListener("submit", async func
     mensagem.style.color = "red";
   }
 });
+
+
+
+async function carregarPets() {
+  const resposta = await fetch("http://127.0.0.1:5000/api/cachorros");
+  const pets = await resposta.json();
+
+  const container = document.getElementById("listaPets");
+  container.innerHTML = "";
+
+  pets.forEach(pet => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+      <figure>
+        <img src="${pet.foto}" alt="${pet.nome}">
+      </figure>
+      <h4>Nome: ${pet.nome}</h4>
+      <p>Peso: ${pet.peso} kg</p>
+      <button>ver mais</button>
+    `;
+
+    container.appendChild(card);
+  });
+
+  const botao = document.createElement("button");
+    botao.id = "abrirModal";
+    botao.classList.add("botao-cadastrar");
+    botao.textContent = "Cadastrar novo pet +";
+    lista.appendChild(botao);
+
+    botao.addEventListener("click", () => {
+        document.getElementById("modalCadastro").style.display = "block";
+    });
+}
+
+carregarPets();
